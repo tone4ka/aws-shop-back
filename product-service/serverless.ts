@@ -1,37 +1,38 @@
-import type { AWS } from '@serverless/typescript';
+import type { AWS } from "@serverless/typescript";
 
-import products from '@functions/products';
+import getProductsList from "functions/getProductsList";
+import getProductsById from "functions/getProductsById";
 
 const serverlessConfiguration: AWS = {
-  service: 'product-service',
-  frameworkVersion: '3',
-  plugins: ['serverless-esbuild'],
+  service: "product-service",
+  frameworkVersion: "3",
+  plugins: ["serverless-esbuild"],
   provider: {
-    name: 'aws',
-    runtime: 'nodejs14.x',
-    region: 'eu-west-1',
-    profile: 'default',
+    name: "aws",
+    runtime: "nodejs14.x",
+    region: "eu-west-1",
+    profile: "default",
     apiGateway: {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
     },
     environment: {
-      AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
-      NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
+      AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
+      NODE_OPTIONS: "--enable-source-maps --stack-trace-limit=1000",
     },
   },
   // import the function via paths
-  functions: { products },
+  functions: { getProductsList, getProductsById },
   package: { individually: true },
   custom: {
     esbuild: {
       bundle: true,
       minify: false,
       sourcemap: true,
-      exclude: ['aws-sdk'],
-      target: 'node14',
-      define: { 'require.resolve': undefined },
-      platform: 'node',
+      exclude: ["aws-sdk"],
+      target: "node14",
+      define: { "require.resolve": undefined },
+      platform: "node",
       concurrency: 10,
     },
   },
