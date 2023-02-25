@@ -1,0 +1,80 @@
+openapi: 3.0.0
+info:
+  title: Travel agency Let's travel
+  version: 0.0.1
+servers:
+  - url: https://nqfh58swc6.execute-api.eu-west-1.amazonaws.com/dev
+    description: Dev server
+paths:
+  /products:
+    get:
+      summary: Returns a list of products
+      tags: 
+        - Products list
+      responses:
+        '200':
+          description: A products list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                      description: 
+                        type: string
+                        example: "Short Product Description1"
+                      id: 
+                        type: string
+                        example: "7567ec4b-b10c-48c5-9345-fc73c48a80aa"
+                      imageUrl:
+                        type: string
+                        example: "https://photos.com/view.jpg"
+                      price: 
+                        type: number
+                        example:  24
+                      title: 
+                        type: string
+                        example: "Hawaii"
+  /products/{product_id}:
+    get:
+      summary: Returns product by id
+      tags: 
+        - Product by id
+      parameters:
+        - name: product_id
+          in: path
+          required: true
+          description: Requered product id
+          schema:
+            type : string
+      responses:
+        '200':
+          description: Product
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                    description: 
+                      type: string
+                      example: "Short Product Description1"
+                    id: 
+                      type: string
+                      example: "7567ec4b-b10c-48c5-9345-fc73c48a80aa"
+                    imageUrl:
+                      type: string
+                      example: "https://photos.com/view.jpg"
+                    price: 
+                      type: number
+                      example:  24
+                    title: 
+                      type: string
+                      example: "Hawaii"
+        '404':
+          description: Product not found
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "Product not found"
