@@ -7,7 +7,8 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "format": "prettier --write .",
-    "eslint:check": "eslint --ext .ts ."
+    "eslint:check": "eslint --ext .ts .",
+    "deploy": "serverless deploy"
   },
   "engines": {
     "node": ">=14.15.0"

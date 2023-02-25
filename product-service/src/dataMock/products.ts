@@ -51,7 +51,7 @@ export const products: Product[] = [
   {
     description: "Short Product Description4",
     id: "7567ec4b-b10c-48c5-9345-fc73348a80a1",
-    price: 15,
+    price: 16,
     title: "Spain",
     imageUrl:
       "https://cdn.kimkim.com/files/a/content_articles/featured_photos/736090c81de0f571ace574f5dd96640611b04626/big-523b3fd584afb6a873ff1fe57f4d9f58.jpg",
