@@ -25,6 +25,22 @@ export async function getProduct(id: string): Promise<Product> {
 
 export const products: Product[] = [
   {
+    description: "Short Product Description111",
+    id: "7567ec4b-b10c-48c5-9345-fc73c48a80bb",
+    imageUrl:
+      "https://planetofhotels.com/guide/sites/default/files/styles/paragraph__text_with_image___twi_image/public/2022-05/The-Statue-of-Liberty-3.jpg",
+    price: 23,
+    title: "New York",
+  },
+  {
+    description: "Short Product Description123",
+    id: "7567ec4b-b10c-48c5-9345-fc73c48a80cc",
+    imageUrl:
+      "https://pacificimmigration.ca/ru/wp-content/uploads/2017/01/2.jpg",
+    price: 20,
+    title: "Vancouver",
+  },
+  {
     description: "Short Product Description1",
     id: "7567ec4b-b10c-48c5-9345-fc73c48a80aa",
     imageUrl:
@@ -71,5 +87,37 @@ export const products: Product[] = [
     title: "Egypt",
     imageUrl:
       "https://www.planetware.com/photos-large/EGY/egypt-cairo-pyramids-of-giza.jpg",
+  },
+  {
+    description: "Short Product Description1234",
+    id: "7567ec4b-b10c-48c5-9345-fc73c48a80cc",
+    imageUrl:
+      "https://planetofhotels.com/guide/sites/default/files/styles/big_gallery_image/public/text_gallery/Los%20Angeles_6.jpg",
+    price: 21,
+    title: "Los Angeles",
+  },
+  {
+    description: "Short Product Description71",
+    id: "7567ec4b-b10c-45c5-9345-fc73c48a80dd",
+    price: 21,
+    title: "Japan",
+    imageUrl:
+      "https://img1.akspic.ru/crops/9/6/7/7/87769/87769-zavod-gora-dostoprimechatelnost-pejzazhi_gor-kitajskaya_arhitektura-3840x2160.jpg",
+  },
+  {
+    description: "Short Product Description72",
+    id: "7567ec4b-b10c-45c5-9345-fc73c48a80ff",
+    price: 20,
+    title: "India",
+    imageUrl:
+      "https://kartinkin.net/uploads/posts/2022-02/thumbs/1645448729_35-kartinkin-net-p-indiya-kartinki-41.jpg",
+  },
+  {
+    description: "Short Product Description723",
+    id: "7567ec4b-b10c-45c5-9345-fc73c48a80fd",
+    price: 20,
+    title: "Switzerland",
+    imageUrl:
+      "https://sportishka.com/uploads/posts/2022-03/1646207932_1-sportishka-com-p-tsermatt-turizm-krasivo-foto-1.jpg",
   },
 ];
