@@ -2,6 +2,7 @@
 coverage/
 node_modules
 jspm_packages
+SWAGGER
 
 # Serverless directories
 .serverless

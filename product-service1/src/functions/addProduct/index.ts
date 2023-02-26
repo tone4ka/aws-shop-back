@@ -11,6 +11,7 @@ export default {
       http: {
         method: "post",
         path: "products",
+        bodyType: "AddProductBody",
         request: {
           schemas: {
             "application/json": schema,
