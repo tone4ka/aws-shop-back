@@ -9,10 +9,10 @@ paths:
   /products:
     get:
       summary: Returns a list of products
-      tags:
+      tags: 
         - Products list
       responses:
-        "200":
+        '200':
           description: A products list
           content:
             application/json:
@@ -21,25 +21,76 @@ paths:
                 items:
                   type: object
                   properties:
-                    description:
-                      type: string
-                      example: "Short Product Description1"
-                    id:
-                      type: string
-                      example: "7567ec4b-b10c-48c5-9345-fc73c48a80aa"
-                    imageUrl:
-                      type: string
-                      example: "https://photos.com/view.jpg"
-                    price:
-                      type: number
-                      example: 24
-                    title:
-                      type: string
-                      example: "Hawaii"
+                      description: 
+                        type: string
+                        example: "Short Product Description1"
+                      id: 
+                        type: string
+                        example: "7567ec4b-b10c-48c5-9345-fc73c48a80aa"
+                      imageUrl:
+                        type: string
+                        example: "https://photos.com/view.jpg"
+                      price: 
+                        type: number
+                        example:  24
+                      title: 
+                        type: string
+                        example: "Hawaii"
+    post:
+      summary: Creates new product
+      tags: 
+        - Create product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title: 
+                  type: string
+                  example: "Hawaiiiii"
+                description:
+                  type: string
+                  example: "Short Product Description1"
+                price:
+                  type: integer
+                  example:  20
+                imageUrl:
+                  type: string
+                  example: "https://photos.com/view.jpg"
+                count:
+                  type: integer
+                  example:  24
+      responses:
+        '200':
+          description: A products list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                      description: 
+                        type: string
+                        example: "Short Product Description1"
+                      id: 
+                        type: string
+                        example: "7567ec4b-b10c-48c5-9345-fc73c48a80aa"
+                      imageUrl:
+                        type: string
+                        example: "https://photos.com/view.jpg"
+                      price: 
+                        type: number
+                        example:  24
+                      title: 
+                        type: string
+                        example: "Hawaii"
   /products/{product_id}:
     get:
       summary: Returns product by id
-      tags:
+      tags: 
         - Product by id
       parameters:
         - name: product_id
@@ -47,31 +98,31 @@ paths:
           required: true
           description: Requered product id
           schema:
-            type: string
+            type : string
       responses:
-        "200":
+        '200':
           description: Product
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  description:
-                    type: string
-                    example: "Short Product Description1"
-                  id:
-                    type: string
-                    example: "7567ec4b-b10c-48c5-9345-fc73c48a80aa"
-                  imageUrl:
-                    type: string
-                    example: "https://photos.com/view.jpg"
-                  price:
-                    type: number
-                    example: 24
-                  title:
-                    type: string
-                    example: "Hawaii"
-        "404":
+                    description: 
+                      type: string
+                      example: "Short Product Description1"
+                    id: 
+                      type: string
+                      example: "7567ec4b-b10c-48c5-9345-fc73c48a80aa"
+                    imageUrl:
+                      type: string
+                      example: "https://photos.com/view.jpg"
+                    price: 
+                      type: number
+                      example:  24
+                    title: 
+                      type: string
+                      example: "Hawaii"
+        '404':
           description: Product not found
           content:
             application/json:
