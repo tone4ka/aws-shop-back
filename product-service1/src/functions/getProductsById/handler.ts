@@ -4,7 +4,7 @@ import { APIGatewayProxyEvent } from "aws-lambda";
 import { getProduct } from "utils/products";
 
 const getProductsById = async (event: Omit<APIGatewayProxyEvent, "body">) => {
-  console.log("getProductsById request with body:", JSON.stringify(event));
+  console.log("Get product with id:", JSON.stringify(event.pathParameters));
   try {
     const { productId } = event.pathParameters;
     const product = await getProduct(`${productId}`);
