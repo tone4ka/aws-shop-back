@@ -54,7 +54,6 @@ module.exports = {
       },
     ],
     "dot-notation": "error",
-    "no-console": "error",
     "@typescript-eslint/no-empty-function": 0,
     "@typescript-eslint/no-var-requires": 0,
   },

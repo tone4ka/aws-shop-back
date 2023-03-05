@@ -1,8 +1,8 @@
 import { APIGatewayProxyEvent, Context } from "aws-lambda";
-import { getProducts } from "dataMock/products";
+import { getProducts } from "utils/products";
 import { main } from "./handler";
 
-jest.mock("dataMock/products");
+jest.mock("utils/products");
 
 describe("getProductsList", () => {
   test("should return product list", async () => {

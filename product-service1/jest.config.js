@@ -5,10 +5,7 @@ module.exports = {
   testMatch: ["**/?(*.)+(test).ts"],
   moduleFileExtensions: ["ts", "json", "js"],
   collectCoverageFrom: ["src/**/*.ts"],
-  coveragePathIgnorePatterns: [
-    "/node_modules/",
-    "dataMock"
-  ],
+  coveragePathIgnorePatterns: ["/node_modules/", "dataMock"],
   coverageReporters: ["text", "cobertura"],
   // Automatically restore mock state between every test
   restoreMocks: true,
