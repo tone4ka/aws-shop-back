@@ -6,8 +6,7 @@ import importFileParser from "@functions/importFileParser";
 const serverlessConfiguration: AWS = {
   service: "import-service",
   frameworkVersion: "3",
-  // plugins: ["serverless-auto-swagger", "serverless-esbuild"],
-  plugins: ["serverless-esbuild"],
+  plugins: ["serverless-auto-swagger", "serverless-esbuild"],
   provider: {
     name: "aws",
     runtime: "nodejs14.x",
@@ -46,10 +45,10 @@ const serverlessConfiguration: AWS = {
       platform: "node",
       concurrency: 10,
     },
-    // autoswagger: {
-    //   apiType: "http",
-    //   basePath: "/${sls:stage}",
-    // },
+    autoswagger: {
+      apiType: "http",
+      basePath: "/${sls:stage}",
+    },
   },
 };
 
