@@ -43,6 +43,7 @@ const serverlessConfiguration: AWS = {
     },
     autoswagger: {
       apiType: "http",
+      basePath: "/${sls:stage}",
     },
   },
 };

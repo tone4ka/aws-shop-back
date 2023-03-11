@@ -37,7 +37,7 @@ module.exports = {
   },
   rules: {
     "prettier/prettier": "error",
-    "no-template-curly-in-string": "error",
+    "no-template-curly-in-string": "warn",
     "prefer-template": "error",
     "@typescript-eslint/naming-convention": [
       "error",
