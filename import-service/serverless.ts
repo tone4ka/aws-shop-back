@@ -27,7 +27,7 @@ const serverlessConfiguration: AWS = {
       CATALOG_ITEMS_QUEUE: "catalogItemsQueue",
       PRODUCT_TABLE_NAME: "Products1",
       STOCK_TABLE_NAME: "Stock",
-      TOPIC_ARN: { Ref: "SNSTopic" },
+      TOPIC_ARN: { Ref: "SNSTopic3" },
     },
     iamRoleStatements: [
       {
@@ -56,7 +56,7 @@ const serverlessConfiguration: AWS = {
       {
         Effect: "Allow",
         Action: ["sns:*"],
-        Resource: { Ref: "SNSTopic" },
+        Resource: { Ref: "SNSTopic3" },
       },
     ],
   },
@@ -69,20 +69,36 @@ const serverlessConfiguration: AWS = {
           QueueName: "catalogItemsQueue",
         },
       },
-      SNSTopic: {
+      SNSTopic3: {
         Type: "AWS::SNS::Topic",
         Properties: {
-          DisplayName: "SNSTopic"
+          DisplayName: "SNSTopic3"
         },
       },
-      SNSSubscription: {
+      SNSSubscription1: {
         Type: "AWS::SNS::Subscription",
         Properties: {
           Protocol: "email",
           Endpoint: "toniamik@gmail.com",
-          TopicArn: { Ref: "SNSTopic" }
-        },
-      }
+          TopicArn: { Ref: "SNSTopic3" },
+          FilterPolicy: {
+            HasImage: ["has"]
+          },
+          FilterPolicyScope: "MessageAttributes"
+        }
+      },
+      SNSSubscription2: {
+        Type: "AWS::SNS::Subscription",
+        Properties: {
+          Protocol: "email",
+          Endpoint: "toniamik@yandex.com",
+          TopicArn: { Ref: "SNSTopic3" },
+          FilterPolicy: {
+            HasImage: ["has not"]
+          },
+          FilterPolicyScope: "MessageAttributes"
+        }
+      },
     },
   },
   package: { individually: true },
