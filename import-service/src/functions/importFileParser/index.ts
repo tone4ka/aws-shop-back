@@ -9,8 +9,8 @@ export default {
       s3: {
         bucket: "import-service22",
         event: "s3:ObjectCreated:*",
-        rules:[{prefix: "uploaded/"}],
-        existing: true
+        rules: [{ prefix: "uploaded/" }],
+        existing: true,
       },
     },
   ],
