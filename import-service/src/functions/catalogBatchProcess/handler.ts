@@ -1,11 +1,10 @@
 import middy from "@middy/core";
 import { SQSEvent, SQSHandler } from "aws-lambda";
-import { addProductItem, Product } from "./utils/products";
+import { addProductItem } from "./utils/products";
+import { Product } from "./utils/types";
 import { publishToSNS } from "./utils/publishToSNS";
 
-const catalogBatchProcess: SQSHandler = async (event: SQSEvent) => {
-  console.log("RECEIVED FROM SQS EVENT", JSON.stringify(event));
-
+export const catalogBatchProcess: SQSHandler = async (event: SQSEvent) => {
   const products = event.Records.map((record) =>
     JSON.parse(record.body)
   ) as Omit<Product, "id">[];

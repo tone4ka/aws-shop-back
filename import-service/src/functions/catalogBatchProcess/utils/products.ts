@@ -5,6 +5,7 @@ import {
   PutCommandOutput,
 } from "@aws-sdk/lib-dynamodb";
 import { v4 as uuidv4 } from "uuid";
+import { Product } from "./types";
 
 const client = new DynamoDBClient({});
 
@@ -14,15 +15,6 @@ const dynamo = DynamoDBDocumentClient.from(client, {
 
 const productTableName = process.env.PRODUCT_TABLE_NAME;
 const stockTableName = process.env.STOCK_TABLE_NAME;
-
-export type Product = {
-  description: string;
-  id: string;
-  imageUrl?: string;
-  price: number;
-  title: string;
-  count: number;
-};
 
 export async function addProductItem(
   product: Omit<Product, "id">
