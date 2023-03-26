@@ -9,8 +9,8 @@ import {
 const serverlessConfiguration: AWS = {
   service: "import-service",
   frameworkVersion: "3",
-  // plugins: ["serverless-auto-swagger", "serverless-esbuild"],
-  plugins: ["serverless-esbuild"],
+  plugins: ["serverless-auto-swagger", "serverless-esbuild"],
+  // plugins: ["serverless-esbuild"],
   provider: {
     name: "aws",
     runtime: "nodejs14.x",
@@ -99,6 +99,17 @@ const serverlessConfiguration: AWS = {
           FilterPolicyScope: "MessageAttributes"
         }
       },
+      GatewayResponseDefault4XX: {
+        Type: "AWS::ApiGateway::GatewayResponse",
+        Properties: {
+          ResponseParameters: {
+            "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
+            "gatewayresponse.header.Access-Control-Allow-Headers": "'*'"
+          },
+          ResponseType: "DEFAULT_4XX",
+          RestApiId: {Ref: "ApiGatewayRestApi"}
+        }
+      }
     },
   },
   package: { individually: true },
@@ -113,10 +124,10 @@ const serverlessConfiguration: AWS = {
       platform: "node",
       concurrency: 10,
     },
-    // autoswagger: {
-    //   apiType: "http",
-    //   basePath: "/${sls:stage}",
-    // },
+    autoswagger: {
+      apiType: "http",
+      basePath: "/${sls:stage}",
+    },
   },
 };
 

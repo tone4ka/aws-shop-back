@@ -1,0 +1,13 @@
+# package directories
+coverage/
+node_modules
+jspm_packages
+SWAGGER
+
+# Serverless directories
+.serverless
+
+# esbuild directories
+.esbuild
+
+.env
