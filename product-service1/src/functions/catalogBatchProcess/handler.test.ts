@@ -2,9 +2,13 @@ import { SQSEvent, Context } from "aws-lambda";
 import { catalogBatchProcess } from "./handler";
 
 const addProductItemMock = jest.fn();
-jest.mock("./utils/products", () => ({ addProductItem: (product) => addProductItemMock(product) }));
+jest.mock("utils/products", () => ({
+  addProductItem: (product) => addProductItemMock(product),
+}));
 const publishToSNSMock = jest.fn();
-jest.mock("./utils/publishToSNS", () => ({ publishToSNS: (products)=>publishToSNSMock(products) }));
+jest.mock("./utils/publishToSNS", () => ({
+  publishToSNS: (products) => publishToSNSMock(products),
+}));
 
 const productMock = {
   title: "Test title",

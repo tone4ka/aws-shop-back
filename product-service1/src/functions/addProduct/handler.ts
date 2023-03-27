@@ -5,7 +5,8 @@ import {
 import { formatJSONResponse } from "libs/api-gateway";
 import { middyfy } from "libs/lambda";
 import schema from "./schema";
-import { addProductItem, Product } from "utils/products";
+import { addProductItem } from "utils/products";
+import { Product } from "utils/types";
 
 const addProduct: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (
   event

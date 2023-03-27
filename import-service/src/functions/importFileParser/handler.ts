@@ -1,9 +1,9 @@
 import { S3 } from "aws-sdk";
 import middy from "@middy/core";
-import { parseCatalog } from "./parseCatalog";
-import { replaceParcedFiles } from "./replaceParcedFiles";
-import { getFilesList } from "./getFilesList";
-import { sendDatatoQueue } from "./sendDataToQeue";
+import { parseCatalog } from "./utils/parseCatalog";
+import { replaceParcedFiles } from "./utils/replaceParcedFiles";
+import { getFilesList } from "./utils/getFilesList";
+import { sendDatatoQueue } from "./utils/sendDataToQeue";
 
 const importFileParser = async () => {
   try {

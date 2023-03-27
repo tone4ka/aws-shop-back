@@ -3,7 +3,6 @@ import type { AWS } from "@serverless/typescript";
 import {
   importProductsFile,
   importFileParser,
-  catalogBatchProcess,
 } from "@functions/index";
 
 const serverlessConfiguration: AWS = {
@@ -25,9 +24,6 @@ const serverlessConfiguration: AWS = {
       NODE_OPTIONS: "--enable-source-maps --stack-trace-limit=1000",
       BUCKET_NAME: "import-service22",
       CATALOG_ITEMS_QUEUE: "catalogItemsQueue",
-      PRODUCT_TABLE_NAME: "Products1",
-      STOCK_TABLE_NAME: "Stock",
-      TOPIC_ARN: { Ref: "SNSTopic3" },
     },
     iamRoleStatements: [
       {
@@ -43,24 +39,9 @@ const serverlessConfiguration: AWS = {
         Action: ["sqs:*"],
         Resource: { "Fn::GetAtt": ["catalogItemsQueue", "Arn"] },
       },
-      {
-        Effect: "Allow",
-        Action: ["dynamodb:*"],
-        Resource: "arn:aws:dynamodb:eu-west-1:211657249927:table/Products1",
-      },
-      {
-        Effect: "Allow",
-        Action: ["dynamodb:*"],
-        Resource: "arn:aws:dynamodb:eu-west-1:211657249927:table/Stock",
-      },
-      {
-        Effect: "Allow",
-        Action: ["sns:*"],
-        Resource: { Ref: "SNSTopic3" },
-      },
     ],
   },
-  functions: { importFileParser, importProductsFile, catalogBatchProcess },
+  functions: { importFileParser, importProductsFile },
   resources: {
     Resources: {
       catalogItemsQueue: {
@@ -68,36 +49,6 @@ const serverlessConfiguration: AWS = {
         Properties: {
           QueueName: "catalogItemsQueue",
         },
-      },
-      SNSTopic3: {
-        Type: "AWS::SNS::Topic",
-        Properties: {
-          DisplayName: "SNSTopic3"
-        },
-      },
-      SNSSubscription1: {
-        Type: "AWS::SNS::Subscription",
-        Properties: {
-          Protocol: "email",
-          Endpoint: "toniamik@gmail.com",
-          TopicArn: { Ref: "SNSTopic3" },
-          FilterPolicy: {
-            HasImage: ["has"]
-          },
-          FilterPolicyScope: "MessageAttributes"
-        }
-      },
-      SNSSubscription2: {
-        Type: "AWS::SNS::Subscription",
-        Properties: {
-          Protocol: "email",
-          Endpoint: "toniamik@yandex.com",
-          TopicArn: { Ref: "SNSTopic3" },
-          FilterPolicy: {
-            HasImage: ["has not"]
-          },
-          FilterPolicyScope: "MessageAttributes"
-        }
       },
     },
   },
