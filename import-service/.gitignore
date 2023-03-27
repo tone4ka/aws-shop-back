@@ -10,3 +10,5 @@ jspm_packages
 
 # test coverage results
 coverage
+
+swagger

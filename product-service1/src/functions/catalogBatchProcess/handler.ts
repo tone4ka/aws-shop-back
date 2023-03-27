@@ -1,7 +1,7 @@
 import middy from "@middy/core";
 import { SQSEvent, SQSHandler } from "aws-lambda";
-import { addProductItem } from "./utils/products";
-import { Product } from "./utils/types";
+import { addProductItem } from "utils/products";
+import { Product } from "utils/types";
 import { publishToSNS } from "./utils/publishToSNS";
 
 export const catalogBatchProcess: SQSHandler = async (event: SQSEvent) => {

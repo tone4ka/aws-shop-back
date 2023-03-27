@@ -1,5 +1,5 @@
 import { SNS } from "@aws-sdk/client-sns";
-import { Product } from "./types";
+import { Product } from "utils/types";
 
 function getParams(products: Omit<Product, "id">[], hasImage: boolean) {
   return {

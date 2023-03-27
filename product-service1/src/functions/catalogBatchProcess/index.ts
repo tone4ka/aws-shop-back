@@ -1,4 +1,4 @@
-import { handlerPath } from "@libs/handler-resolver";
+import { handlerPath } from "libs/handler-resolver";
 
 export default {
   handler: `${handlerPath(__dirname)}/handler.main`,
@@ -6,7 +6,7 @@ export default {
   events: [
     {
       sqs: {
-        arn: { "Fn::GetAtt": ["catalogItemsQueue", "Arn"] },
+        arn: "arn:aws:sqs:eu-west-1:211657249927:catalogItemsQueue",
         batchSize: 5,
       },
     },
