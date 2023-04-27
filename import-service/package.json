@@ -19,6 +19,7 @@
     "@aws-sdk/lib-dynamodb": "^3.294.0",
     "@middy/core": "^3.4.0",
     "@middy/http-json-body-parser": "^3.4.0",
+    "@middy/input-output-logger": "^4.2.8",
     "aws-sdk": "^2.1328.0",
     "aws-sdk-typescript": "^0.0.3",
     "csv-parser": "^3.0.0",
